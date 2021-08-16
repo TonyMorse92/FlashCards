@@ -1,0 +1,7 @@
+backend/flashcards/controller/FlashcardController.class
+backend/flashcards/model/Flashcard.class
+backend/flashcards/exception/ErrorDetails.class
+backend/flashcards/exception/GlobalExceptionHandler.class
+backend/flashcards/exception/ResourceNotFoundException.class
+backend/flashcards/FlashcardsApplication.class
+backend/flashcards/repository/FlashcardRepository.class

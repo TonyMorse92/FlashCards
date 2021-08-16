@@ -1,0 +1,7 @@
+/home/ot-tony/Programs/Github/FlashCards/backend/src/main/java/backend/flashcards/exception/ErrorDetails.java
+/home/ot-tony/Programs/Github/FlashCards/backend/src/main/java/backend/flashcards/FlashcardsApplication.java
+/home/ot-tony/Programs/Github/FlashCards/backend/src/main/java/backend/flashcards/controller/FlashcardController.java
+/home/ot-tony/Programs/Github/FlashCards/backend/src/main/java/backend/flashcards/model/Flashcard.java
+/home/ot-tony/Programs/Github/FlashCards/backend/src/main/java/backend/flashcards/exception/GlobalExceptionHandler.java
+/home/ot-tony/Programs/Github/FlashCards/backend/src/main/java/backend/flashcards/exception/ResourceNotFoundException.java
+/home/ot-tony/Programs/Github/FlashCards/backend/src/main/java/backend/flashcards/repository/FlashcardRepository.java

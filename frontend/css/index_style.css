@@ -25,6 +25,15 @@ html
 	vertical-align: middle;
 }
 
+.status-button
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
+	overflow: hidden;
+	transition: all .2s linear;
+}
+
 .card 
 {
 	margin-left: auto;
@@ -33,6 +42,15 @@ html
 	background: white;
 	box-shadow: 2px 4px 25px rgba(0, 0, 0, .1);
 	border-radius: 12px;
+	overflow: hidden;
+	transition: all .2s linear;
+}
+
+.action-button
+{
+	margin-left: auto;
+	margin-right: auto;
+	width: 40%;
 	overflow: hidden;
 	transition: all .2s linear;
 }
@@ -55,4 +73,45 @@ p
 	margin: 0;
 }
 
+/******************* Buttons ***************************/
+.left-button
+{
+	float: left;
+	border: none;
+	padding: 0;
+	background: green;
+	color: white;
+	border-radius:5px;
+	width: 25%;
+}
 
+.left-button:hover
+{
+	background-color: blue;
+}
+
+.left-button:active 
+{
+    background-color: navy;
+}
+
+.right-button
+{
+	float: right;
+	border: none;
+	padding: 0;
+	background: green;
+	color: white;
+	border-radius:5px;
+	width: 25%;
+}
+
+.right-button:hover
+{
+	background-color: blue;
+}
+
+.right-button:active 
+{
+    background-color: navy;
+}

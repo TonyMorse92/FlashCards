@@ -1,8 +1,4 @@
 # FlashCards
-This is the static branch, where I will be making the home page mostly static
-as opposed to being mostly dynamic as it is on the main branch.
-The idea is that this will increase the speed.
-
 Basic flashcard site, written in Java (Spring Boot) and HTML/CSS/JS.
 
 

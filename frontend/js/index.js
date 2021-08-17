@@ -37,11 +37,11 @@ request.onload = function ()
 	// Current thought is to have all of them be random, because going through the 
 	// same flashcard multiple times is probably a good thing.
 	// random number is between 0 and number of (flashcards - 1)
-	let randomNumber = Math.floor(Math.random() * data.length)
+	//let randomNumber = Math.floor(Math.random() * data.length)
 
 	if (request.status >= 200 && request.status < 400) 
 	{
-		const addButton = document.createElement("button");
+		/*const addButton = document.createElement("button");
 		addButton.innerHTML = "Add flashcard";
 		addButton.setAttribute("class", "left-button");
 		addButton.setAttribute("onclick", "location.href = 'add_card.html';");
@@ -57,9 +57,11 @@ request.onload = function ()
 		topButtonRow.appendChild(addButton);
 		topButtonRow.appendChild(updateButton);
 
-		//let flashcard = data[randomNumber];
-		let flashcard = data[1];
-		const card = document.createElement('div');
+		//let flashcard = data[randomNumber];*/
+		let flashcard = data[0];
+		document.getElementById("h1").innerHTML = flashcard.subject;
+		document.getElementById("p").innerHTML = flashcard.answer;
+		/*const card = document.createElement('div');
 		card.setAttribute('class', 'card');
 		card.setAttribute('id', 'card');
 
@@ -89,7 +91,7 @@ request.onload = function ()
 
 		container.appendChild(topButtonRow);
 		container.appendChild(card);
-		container.appendChild(bottomButtonRow);
+		container.appendChild(bottomButtonRow);*/
 	}
 	else 
 	{
@@ -103,7 +105,7 @@ request.onload = function ()
 	//renderPt2();
 }
 
-function renderPt1() 
+/*function renderPt1() 
 {
   var script = document.createElement("script");
   script.type = "text/javascript";
@@ -136,6 +138,6 @@ function buttonAction(id)
 	{
 	}
 }
-
+*/
 
 request.send();

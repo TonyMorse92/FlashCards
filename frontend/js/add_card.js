@@ -7,9 +7,6 @@ var postRequest = new XMLHttpRequest();
 postRequest.open("POST", 'http://localhost:8080/flashcard-app/api/flashcards/', true);
 postRequest.setRequestHeader('Content-Type', 'application/json');
 
-//const addButton = document.getElementById("add-button");
-//addButton.onclick = addFlashcard;
-
 function addFlashcard()
 {
 	const subject = document.getElementById('subject').value;

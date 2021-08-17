@@ -18,6 +18,16 @@ request.open('GET', 'http://localhost:8080/flashcard-app/api/flashcards/', true)
 //alert("Request:  " + request);
 
 
+
+// NOTE TO SELF. Loading the request data should be separte from creating all of the items
+// Otherwise, I won't be able to go to the next card efficiently, I don't think
+
+// Since I'm only creating the one flashcard, I guess the inner div is all that needs to be
+// dynamically created. And I don't even have to do that. The only things that change are
+// the text in the h1 and the p. It would be faster if it was all static.
+// Not sure how much faster, since I think it is just slow because of it being a 
+// Python server, but still, speed is speed. 
+ 
 request.onload = function () 
 {
 	//alert("Request Status: " + request.status);
@@ -33,11 +43,13 @@ request.onload = function ()
 	{
 		const addButton = document.createElement("button");
 		addButton.innerHTML = "Add flashcard";
-		addButton.setAttribute('class', 'left-button');
+		addButton.setAttribute("class", "left-button");
+		addButton.setAttribute("onclick", "location.href = 'add_card.html';");
 
 		const updateButton = document.createElement("button");
 		updateButton.innerHTML = "Update flashcard";
 		updateButton.setAttribute('class', 'right-button');
+		updateButton.setAttribute("onclick", "location.href = 'update_card.html';");
 
 		const topButtonRow = document.createElement('div');
 		topButtonRow.setAttribute('class', 'status-button');
@@ -46,7 +58,7 @@ request.onload = function ()
 		topButtonRow.appendChild(updateButton);
 
 		//let flashcard = data[randomNumber];
-		let flashcard = data[0];
+		let flashcard = data[1];
 		const card = document.createElement('div');
 		card.setAttribute('class', 'card');
 		card.setAttribute('id', 'card');
@@ -86,8 +98,9 @@ request.onload = function ()
 		app.appendChild(errorMessage);
 	}
 
-	renderPt1();
-	renderPt2();
+	//document.getElementById('add-button').onclick = buttonAction('add-button');
+	//renderPt1();
+	//renderPt2();
 }
 
 function renderPt1() 
@@ -105,9 +118,9 @@ function renderPt2()
 script.src  = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
   document.getElementsByTagName("head")[0].appendChild(script);
 }
-//document.getElementById('add-button').onclick = buttonAction('add-button');
 
-/*function buttonAction(id)
+
+function buttonAction(id)
 {
 	if(id == 'add-button')
 	{
@@ -122,7 +135,7 @@ script.src  = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
 	else if(id == 'flip-button')
 	{
 	}
-}*/
+}
 
 
 request.send();

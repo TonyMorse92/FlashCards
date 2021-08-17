@@ -7,14 +7,9 @@
 		<link rel="stylesheet" href="css/add_card_style.css">
 
 		<title>Add Flashcards</title>
-
-		<!--Allows Tex to display-->
-		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 	</head>
 	<body>
-		<!--<form id="create-flashcard" method="post">-->
-		<!--<form id="create-flashcard" onsubmit="event.preventDefault(); validateNotBlank(); addFlashcard();">-->
+		<a href="index.html">Main Page</a>
 		<form id="create-flashcard" onsubmit="event.preventDefault();">
 			<ul>
 				<li>
@@ -30,7 +25,6 @@
 					<textarea id="answer"></textarea>
 				</li>
 				<li class="button">
-					<!--<button id="add-button">Add</button>-->
 					<button id="add-button" onclick="addFlashcard();">Add</button>
 					<button id="cancel-button" onclick="returnToPrevPage();">Cancel</button>
 				</li>

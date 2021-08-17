@@ -11,7 +11,8 @@ Basic flashcard site, written in Java (Spring Boot) and HTML/CSS/JS.
 * Add update flashcard functionality on frontend
 * Add flip functionality on frontend
 * Add next card functionality on frontend
-* Add delete functionality
+* Add delete functionality on frontend
+* Add MathJax support for re-rendering Tex
 * Add user functionality so that people can create their own lists of flash cards
 * Add quiz functionality so that people can test themselves
 * Add stat tracking functionality so that people can see if the are improving

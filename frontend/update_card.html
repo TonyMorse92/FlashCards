@@ -4,16 +4,13 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<link rel="stylesheet" href="css/add_card_style.css">
+		<link rel="stylesheet" href="css/update_card_style.css">
 
-		<title>Add Flashcards</title>
-
-		<!--Allows Tex to display-->
-		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+		<title>Update Flashcards</title>
 	</head>
 	<body>
-		<form action="/my-handling-form-page" method="post">
+		<a href="index.html">Main Page</a>
+		<form id="create-flashcard" onsubmit="event.preventDefault();">
 			<ul>
 				<li>
 					<label for="subject">Subject:</label>
@@ -28,9 +25,9 @@
 					<textarea id="answer"></textarea>
 				</li>
 				<li class="button">
-					<button type="submit">Update</button>
-					<button type="submit">Delete</button>
-					<button type="submit">Cancel</button>
+					<button id="update-button" onclick="updateFlashcard();">Update</button>
+					<button id="delete-button" onclick="deleteFlashcard();">Delete</button>
+					<button id="cancel-button" onclick="returnToPrevPage();">Cancel</button>
 				</li>
 			</ul>
 		</form>

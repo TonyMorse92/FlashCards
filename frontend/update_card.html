@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/add_card_style.css">
+
+		<title>Add Flashcards</title>
+
+		<!--Allows Tex to display-->
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	</head>
+	<body>
+		<form action="/my-handling-form-page" method="post">
+			<ul>
+				<li>
+					<label for="subject">Subject:</label>
+					<input type="text" id="subject">
+				</li>
+				<li>
+					<label for="question">Question:</label>
+					<textarea id="question"></textarea>
+				</li>
+				<li>
+					<label for="answer">Answer:</label>
+					<textarea id="answer"></textarea>
+				</li>
+				<li class="button">
+					<button type="submit">Update</button>
+					<button type="submit">Delete</button>
+					<button type="submit">Cancel</button>
+				</li>
+			</ul>
+		</form>
+		<script src="js/add_card.js"></script>
+	</body>
+</html>

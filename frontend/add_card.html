@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/add_card_style.css">
+
+		<title>Add Flashcards</title>
+
+		<!--Allows Tex to display-->
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	</head>
+	<body>
+		<!--<form id="create-flashcard" method="post">-->
+		<!--<form id="create-flashcard" onsubmit="event.preventDefault(); validateNotBlank(); addFlashcard();">-->
+		<form id="create-flashcard" onsubmit="event.preventDefault();">
+			<ul>
+				<li>
+					<label for="subject">Subject:</label>
+					<input type="text" id="subject">
+				</li>
+				<li>
+					<label for="question">Question:</label>
+					<textarea id="question"></textarea>
+				</li>
+				<li>
+					<label for="answer">Answer:</label>
+					<textarea id="answer"></textarea>
+				</li>
+				<li class="button">
+					<!--<button id="add-button">Add</button>-->
+					<button id="add-button" onclick="addFlashcard();">Add</button>
+					<button id="cancel-button" onclick="returnToPrevPage();">Cancel</button>
+				</li>
+			</ul>
+		</form>
+		<script src="js/add_card.js"></script>
+	</body>
+</html>

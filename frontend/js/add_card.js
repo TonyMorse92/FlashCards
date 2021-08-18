@@ -3,6 +3,7 @@
  *
 */
 
+/*********************************** Add the new flashcard **************************************/
 var postRequest = new XMLHttpRequest();
 postRequest.open("POST", 'http://localhost:8080/flashcard-app/api/flashcards/', true);
 postRequest.setRequestHeader('Content-Type', 'application/json');
@@ -18,7 +19,7 @@ function addFlashcard()
 		//alert(JSON.stringify({subject:subject, question:question, answer:answer}));
 		postRequest.send(JSON.stringify({subject:subject, question:question, answer:answer}));
 		clear();
-		confirm();
+		confirmCreation();
 	}
 	else
 	{
@@ -26,6 +27,19 @@ function addFlashcard()
 	}
 }
 
+/********************************* Go back to the home page *************************************/
+function returnToMainPage()
+{	
+	window.history.back();
+}
+
+/************************************** Confirmations *******************************************/
+function confirmCreation()
+{
+	alert("Data sent successfully!");
+}
+
+/************************************* Data validation *****************************************/
 function validateData()
 {
 	if(document.getElementById('subject').value == '')
@@ -37,19 +51,10 @@ function validateData()
 	return true;
 }
 
+/************************************* Helper functions *****************************************/
 function clear()
 {
 	document.getElementById('subject').value = '';
 	document.getElementById('question').value = '';
 	document.getElementById('answer').value = '';
-}
-
-function confirm()
-{
-	alert("Data sent successfully!");
-}
-
-function returnToPrevPage()
-{	
-	window.history.back();
 }

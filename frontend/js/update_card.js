@@ -6,36 +6,111 @@
 
 // Can search parameters
 const params = new URLSearchParams(window.location.search);
-id = params.get('id');
-subject = params.get('subject');
-question = params.get('question');
-answer = params.get('answer');
-alert("id: " + id + "\n\n" + "subject: " + subject + "\n\n" + "question: " + question + "\n\n" + "answer: " + answer);
+let id = parseInt(params.get('id'),10);
 
-/*
-var postRequest = new XMLHttpRequest();
-postRequest.open("POST", 'http://localhost:8080/flashcard-app/api/flashcards/', true);
-postRequest.setRequestHeader('Content-Type', 'application/json');
 
-function addFlashcard()
+
+var flashcards;
+var flashcard;
+var randomNumber;
+var subject;
+var question;
+var answer;
+
+/*********** Populate the fields with the flashcard passed from the previous page ***************/
+var request = new XMLHttpRequest();
+request.open('GET', 'http://localhost:8080/flashcard-app/api/flashcards/' + id, true);
+request.send();
+
+request.onload = function () 
 {
-	const subject = document.getElementById('subject').value;
+	flashcard = JSON.parse(this.response);
+	
+	if (request.status >= 200 && request.status < 400) 
+	{
+		fillParameters();
+		clear();
+		document.getElementById("subject").value = subject;
+		document.getElementById("question").value = question;
+		document.getElementById("answer").value = answer;
+	}
+	else 
+	{
+		const errorMessage = document.createElement('marquee');
+		errorMessage.textContent = `Request Denied!`;
+		app.appendChild(errorMessage);
+	}
+}
+
+
+/********************** Update the flashcard with the new information ***************************/
+/*var putRequest = new XMLHttpRequest();
+putRequest.open("PUT", 'http://localhost:8080/flashcard-app/api/flashcards/', true);
+putRequest.setRequestHeader('Content-Type', 'application/json');*/
+
+function updateFlashcard()
+{
+	alert("In updateFlashcard()!");
+	/*const subject = document.getElementById('subject').value;
 	const question = document.getElementById('question').value;
 	const answer = document.getElementById('answer').value;
 	
 	if(validateData())
 	{
-		//alert(JSON.stringify({subject:subject, question:question, answer:answer}));
-		postRequest.send(JSON.stringify({subject:subject, question:question, answer:answer}));
+		alert(JSON.stringify({id:id, subject:subject, question:question, answer:answer}));
+		//putRequest.send(JSON.stringify({id:id, subject:subject, question:question, answer:answer}));
 		clear();
 		confirm();
 	}
 	else
 	{
 		alert("No data field can be empty!");
-	}
+	}*/
 }
 
+
+/*********************************** Delete the flashcard ***************************************/
+/*var deleteRequest = new XMLHttpRequest();
+deleteRequest.open("DELETE", 'http://localhost:8080/flashcard-app/api/flashcards/', true);
+deleteRequest.setRequestHeader('Content-Type', 'application/json');*/
+
+function deleteFlashcard()
+{
+	alert("In deleteFlashcard()!");
+	/*const subject = document.getElementById('subject').value;
+	const question = document.getElementById('question').value;
+	const answer = document.getElementById('answer').value;
+	
+	if(validateData())
+	{
+		alert(JSON.stringify({id:id, subject:subject, question:question, answer:answer}));
+		//deleteRequest.send(JSON.stringify({id:id, subject:subject, question:question, answer:answer}));
+		clear();
+		confirmDelete();
+	}
+	else
+	{
+		alert("No data field can be empty!");
+	}*/
+}
+
+/********************************* Go back to the home page *************************************/
+function returnToMainPage()
+{	
+	window.history.back();
+}
+
+/************************************** Confirmations *******************************************/
+function getConfirmation(action)
+{
+	var confirmed = confirm("Are you sure you want to " + action + " this flashcard?");
+	if(confirmed)
+		makeChange(action);
+	else
+		alert("No changes sent.");
+}
+
+/************************************* Data validation *****************************************/
 function validateData()
 {
 	if(document.getElementById('subject').value == '')
@@ -47,6 +122,7 @@ function validateData()
 	return true;
 }
 
+/************************************* Helper functions *****************************************/
 function clear()
 {
 	document.getElementById('subject').value = '';
@@ -54,13 +130,19 @@ function clear()
 	document.getElementById('answer').value = '';
 }
 
-function confirm()
+function fillParameters()
 {
-	alert("Data sent successfully!");
+	subject = flashcard.subject;
+	question = flashcard.question;
+	answer = flashcard.answer;
 }
 
-function returnToPrevPage()
-{	
-	window.history.back();
+function makeChange(action)
+{
+	if(action == "Delete")
+		deleteFlashcard();
+	else if(action == "Update")
+		updateFlashcard();
+	else
+		alert("Something went wrong with the change logic.");
 }
-*/

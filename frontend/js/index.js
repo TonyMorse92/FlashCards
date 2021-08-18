@@ -2,7 +2,6 @@
  * Fills the card div with flashcard information
  *
 */
-var request = new XMLHttpRequest();
 var flashcards;
 var flashcard;
 var randomNumber;
@@ -11,8 +10,10 @@ var subject;
 var question;
 var answer;
 
+/***************************** Get the flashcards from the api **********************************/
+var request = new XMLHttpRequest();
 request.open('GET', 'http://localhost:8080/flashcard-app/api/flashcards/', true);
-
+request.send();
 request.onload = function () 
 {
 	flashcards = JSON.parse(this.response);
@@ -29,17 +30,12 @@ request.onload = function ()
 	}
 }
 
-function rerender()
-{			
-		// Re-render MathJax
-		// This is the method for MathJax v3
-		MathJax.typeset();
-}
+
 
 function getFlashcard()
 {
 	// The first flashcard shown is going to be random
-	// Current thought is to have all of them be random, because going through the 
+	// Current thought is to have all of them be random, because going through the
 	// same flashcard multiple times is probably a good thing.
 	// random number is between 0 and number of (flashcards - 1)
 	 
@@ -80,6 +76,7 @@ function getFlashcard()
 	} 
 }
 
+/************************************* Go to update page ****************************************/
 function postCurrentFlashcard()
 {
 	// Can't send json due to browsers not liking some special characters
@@ -90,26 +87,10 @@ function postCurrentFlashcard()
 	//alert("json is: " + json);
 	
 	document.getElementById('id').value = id;
-	document.getElementById('subject').value = subject;
-	document.getElementById('question').value = question;
-	document.getElementById('answer').value = answer;
 	document.getElementById("update-form").submit();
-
-	/*var postRequest = new XMLHttpRequest();
-	postRequest.open("POST", 'http://localhost:4200/update_card.html', true);
-	postRequest.setRequestHeader('Content-Type', 'application/json');
-	alert(JSON.stringify({id:id, subject:subject, question:question, answer:answer}));
-	postRequest.send(JSON.stringify({id:id, subject:subject, question:question, answer:answer}));*/
 }
 
-function fillParameters()
-{
-	id = flashcard.id;
-	subject = flashcard.subject;
-	question = flashcard.question;
-	answer = flashcard.answer;
-}
-
+/************************************* "Flip" flaschard *****************************************/
 function getOtherSide()
 {
 	// Two cases. We are either on the front, and have to flip to the
@@ -132,4 +113,20 @@ function getOtherSide()
 	}
 }
 
-request.send();
+/************************************* Helper functions *****************************************/
+function fillParameters()
+{
+	id = flashcard.id;
+	subject = flashcard.subject;
+	question = flashcard.question;
+	answer = flashcard.answer;
+}
+
+function rerender()
+{			
+		// Re-render MathJax
+		// This is the method for MathJax v3
+		MathJax.typeset();
+}
+
+

@@ -11,9 +11,11 @@
 		<!--Allows Tex to display
 		    Currently doesn't re-render. Need different configuration.
 		    Comment out for now.-->
+
+		<script id="MathJax-script" async src="./MathJax/es5/tex-chtml.js"></script>
 		
-		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> 
+		<!--<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>-->
 		
 	</head>
 	<body>
@@ -21,18 +23,26 @@
 			<div class="container">
 				<div class="status-button">
 					<button class="left-button" onclick="location.href = 'add_card.html';">Add Flashcard</button>
-					<button class="right-button" onclick="location.href = 'update_card.html';">Update Flashcard</button>	
+					<!--<button class="right-button" onclick="postCurrentFlashcard(); location.href = 'update_card.html';">Update Flashcard</button>-->
+					<button class="right-button" onclick="postCurrentFlashcard();">Update Flashcard</button>	
 				</div>
 				<div class="card">
 					<h1 id="h1"></h1>
 					<p id="p"></p>
 				</div>
 				<div class="action-button">
-					<button class="left-button">Next Flashcard</button>
-					<button class="right-button">Flip Flashcard</button>	
+					<button class="left-button" onclick="getFlashcard();">Next Flashcard</button>
+					<button class="right-button" onclick="getOtherSide();">Flip Flashcard</button>	
 				</div>
 			</div>
 		</div>		
+		<!-- Hidden form to submit to the update -->
+		<form id="update-form" action="update_card.html" method="GET">
+			<input type="hidden" id="id" name="id">
+			<input type="hidden" id="subject" name="subject">
+			<input type="hidden" id="question" name="question">
+			<input type="hidden" id="answer" name="answer">
+		</form>
 		<script src="js/index.js"></script>
 	</body>
 </html>

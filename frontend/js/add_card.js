@@ -53,5 +53,3 @@ function returnToPrevPage()
 {	
 	window.history.back();
 }
-
-

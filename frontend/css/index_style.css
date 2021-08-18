@@ -115,3 +115,8 @@ p
 {
     background-color: navy;
 }
+
+#ninja
+{ 
+	display: none;
+}

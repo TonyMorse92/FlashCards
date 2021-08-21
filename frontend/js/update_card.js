@@ -44,54 +44,54 @@ request.onload = function ()
 
 
 /********************** Update the flashcard with the new information ***************************/
-/*var putRequest = new XMLHttpRequest();
-putRequest.open("PUT", 'http://localhost:8080/flashcard-app/api/flashcards/', true);
-putRequest.setRequestHeader('Content-Type', 'application/json');*/
+var putRequest = new XMLHttpRequest();
+putRequest.open("PUT", 'http://localhost:8080/flashcard-app/api/flashcards/' + id, true);
+putRequest.setRequestHeader('Content-Type', 'application/json');
 
 function updateFlashcard()
 {
-	alert("In updateFlashcard()!");
-	/*const subject = document.getElementById('subject').value;
+	//alert("In updateFlashcard()!");
+	const subject = document.getElementById('subject').value;
 	const question = document.getElementById('question').value;
 	const answer = document.getElementById('answer').value;
 	
 	if(validateData())
 	{
-		alert(JSON.stringify({id:id, subject:subject, question:question, answer:answer}));
-		//putRequest.send(JSON.stringify({id:id, subject:subject, question:question, answer:answer}));
+		//alert(JSON.stringify({id:id, subject:subject, question:question, answer:answer}));
+		putRequest.send(JSON.stringify({id:id, subject:subject, question:question, answer:answer}));
 		clear();
-		confirm();
+		alert("Flashcard updated successfully!");
 	}
 	else
 	{
 		alert("No data field can be empty!");
-	}*/
+	}
 }
 
 
 /*********************************** Delete the flashcard ***************************************/
-/*var deleteRequest = new XMLHttpRequest();
-deleteRequest.open("DELETE", 'http://localhost:8080/flashcard-app/api/flashcards/', true);
-deleteRequest.setRequestHeader('Content-Type', 'application/json');*/
+var deleteRequest = new XMLHttpRequest();
+deleteRequest.open("DELETE", 'http://localhost:8080/flashcard-app/api/flashcards/' + id, true);
+deleteRequest.setRequestHeader('Content-Type', 'application/json');
 
 function deleteFlashcard()
 {
-	alert("In deleteFlashcard()!");
-	/*const subject = document.getElementById('subject').value;
+	//alert("In deleteFlashcard()!");
+	const subject = document.getElementById('subject').value;
 	const question = document.getElementById('question').value;
 	const answer = document.getElementById('answer').value;
 	
 	if(validateData())
 	{
-		alert(JSON.stringify({id:id, subject:subject, question:question, answer:answer}));
-		//deleteRequest.send(JSON.stringify({id:id, subject:subject, question:question, answer:answer}));
+		//alert(JSON.stringify({id:id, subject:subject, question:question, answer:answer}));
+		deleteRequest.send(JSON.stringify({id:id, subject:subject, question:question, answer:answer}));
 		clear();
-		confirmDelete();
+		alert("Flashcard deleted successfully!");
 	}
 	else
 	{
 		alert("No data field can be empty!");
-	}*/
+	}
 }
 
 /********************************* Go back to the home page *************************************/
@@ -111,6 +111,10 @@ function getConfirmation(action)
 }
 
 /************************************* Data validation *****************************************/
+/*
+ *
+ * 
+ */
 function validateData()
 {
 	if(document.getElementById('subject').value == '')

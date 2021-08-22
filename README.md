@@ -16,6 +16,7 @@ Basic flashcard site, written in Java (Spring Boot) and HTML/CSS/JS.
 * Add help screen for Tex reference
 * Refactor to have fewer global variables.
 * Add more robust error checking.
+	 * For update, should make sure at least some data is changed.
 * Add flip effect in css.
 * Add user functionality so that people can create their own lists of flash cards.
 * Add functionality to read in csv files with flashcard data to populate.

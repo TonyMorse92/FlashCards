@@ -1,6 +1,7 @@
 # FlashCards
 Basic flashcard site, written in Java (Spring Boot) and HTML/CSS/JS.
 
+![](flashcards.gif)
 
 ### ToDo
 * ~~Create basic web layouts for the site.~~
